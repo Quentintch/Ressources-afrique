@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4.2898321mm"
+   height="4.2898321mm"
+   viewBox="0 0 4.289832 4.289832"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="Copper_mine.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="3.265625"
+     inkscape:cy="8.796875"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3228">
+      <stop
+         style="stop-color:#f47044;stop-opacity:1;"
+         offset="0.17557251"
+         id="stop3232" />
+      <stop
+         style="stop-color:#f8bbae;stop-opacity:1;"
+         offset="0.49303079"
+         id="stop3224" />
+      <stop
+         style="stop-color:#f47044;stop-opacity:1;"
+         offset="0.85241729"
+         id="stop3226" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1520">
+      <stop
+         style="stop-color:#f7f199;stop-opacity:1;"
+         offset="0"
+         id="stop7377" />
+      <stop
+         style="stop-color:#f2e47f;stop-opacity:1;"
+         offset="0.69161844"
+         id="stop7379" />
+      <stop
+         style="stop-color:#e9c407;stop-opacity:1;"
+         offset="0.99572879"
+         id="stop7381" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1520-1">
+      <stop
+         style="stop-color:#efd851;stop-opacity:1;"
+         offset="0.43175212"
+         id="stop1516" />
+      <stop
+         style="stop-color:#f2e47f;stop-opacity:1;"
+         offset="0.84782177"
+         id="stop900" />
+      <stop
+         style="stop-color:#f9fad2;stop-opacity:1;"
+         offset="1"
+         id="stop1518" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3228"
+       id="linearGradient3230"
+       x1="50.779926"
+       y1="116.03782"
+       x2="55.049307"
+       y2="116.03782"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-50.769786,-113.89299)">
+    <path
+       id="path264"
+       style="fill:url(#linearGradient3230);stroke:#9a3800;stroke-width:0.0499999;stroke-linecap:round;paint-order:markers stroke fill;fill-opacity:1;stroke-opacity:1"
+       d="M 52.914875 113.92813 A 2.1095521 2.1095521 0 0 0 50.804926 116.03808 A 2.1095521 2.1095521 0 0 0 52.914875 118.14751 A 2.1095521 2.1095521 0 0 0 55.024307 116.03808 A 2.1095521 2.1095521 0 0 0 52.914875 113.92813 z M 52.914875 114.74048 A 1.2973348 1.2973348 0 0 1 54.211953 116.03808 A 1.2973348 1.2973348 0 0 1 52.914875 117.33516 A 1.2973348 1.2973348 0 0 1 51.617279 116.03808 A 1.2973348 1.2973348 0 0 1 52.914875 114.74048 z " />
+  </g>
+</svg>

@@ -1,0 +1,398 @@
+@font-face{ 
+	font-family: 'bauhaus-93';
+	src: url("polices/Bauhaus 93 Regular.ttf")
+
+}
+
+@font-face{
+	font-family: 'Bahnschrift';
+	src: url('polices/Bahnschrift.eot');
+    src: url('polices/Bahnschrift.eot?#iefix') format('embedded-opentype'),
+         url('polices/Bahnschrift.woff') format('woff'),
+         url('polices/Bahnschrift.ttf') format('truetype'),
+         url('polices/Bahnschrift.svg#Bahnschrift') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: auto;
+    font-family: 'Bahnschrift', Arial, sans-serif;
+    background-color: #d74545;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    padding: 8px 0px 8px 5px;
+    background-color: #d74545;
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+    width: 250px;
+}
+
+footer img{
+    height: 50px;
+}
+
+#signature {
+    margin: 0px;
+    margin-left: 21px;
+    font-size: 26px;
+}
+
+p, h2, h1 {
+    margin: 10px;
+}
+
+p, li {
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+#map {
+    margin: auto;
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;    
+    z-index: -1;
+    overflow: hidden;
+}
+
+.country {
+    fill: rgb(134, 134, 146);
+    stroke: rgb(134, 134, 146);
+    z-index: 1;
+}
+
+.country-africa {
+    fill: #000;
+    stroke: rgb(206, 206, 206);
+    stroke-dasharray: 5,5;
+    stroke-width: 0.5px;
+    z-index: 2;
+}
+
+.country-africa-gradient {
+    opacity: 0;
+}
+
+.country-africa-gradient:hover {
+    opacity: 1;
+    transition: opacity 0.3s cubic-bezier(0, 0.5, 1,1);
+}
+
+.africa {
+    fill: none;
+    stroke: rgb(57, 133, 184);
+    stroke-width: 0.8px;
+    filter: drop-shadow(0px 0px 4px #FFF);
+}
+
+
+#svg {
+    position: absolute;
+    background-color: rgb(15, 63, 95);
+    box-shadow: 0px 0px 50px rgb(88, 119, 140) inset;
+    height: 100%;
+    width: 100%;
+}
+
+#title {
+    width: 320px;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+#title, #country-selected h2, #signature, h3 {
+    font-family: 'bauhaus-93','Bahnschrift', Arial, sans-serif;
+    font-weight: lighter;
+    color: #fff;
+}
+
+#icons{
+    position: absolute;
+}
+
+#nav {
+    position: absolute;
+    right: 0px;
+    width: 260px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#legend {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+
+#tooltip-legend {
+    position: absolute;
+    opacity: 0;
+    background-color: rgb(45, 45, 45);
+    border-radius: 5px;
+    color: #FFF;
+    min-height: 18px;
+}
+
+#country-selected {
+    position: absolute;
+    bottom: 0px;
+    right: 260px;
+    left: 220px;
+    transform: translateY(100%);
+    background-color: rgb(8, 33, 50);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#country-content {
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+#country-selected h2 {
+    margin: 0px 10px;
+}
+
+#country-selected img {
+    height: 40px;
+}
+
+#country-selected.display {
+    transition: transform 0.5s;
+    transform: translateY(0);
+}
+
+#tooltip-legend {
+    right: 270px;
+    min-width: 200px;
+}
+
+#tooltip-legend.display {
+    transition: opacity 0.4s 0.5s;
+    opacity: 0.9;
+}
+
+.ico {
+    transform: scale(1);
+    transition: transform 2.5s;
+    position: absolute;
+}
+
+.line-legend {
+    position: relative;
+    margin: 0px;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 4px 30px;
+    flex: 1;
+    font-size: 15px;
+}
+
+.line-legend::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #fff;
+    transform: scaleX(1%);
+    transform-origin: left;
+    z-index: -1;
+    transition: all 0.1s ease-in-out;
+}
+
+.ico-legend {
+    margin-right: 7px;
+}
+
+.ico, .line-legend {
+    z-index: 1;
+    cursor: pointer;
+}
+
+.ico:hover, .line-legend:hover .ico-legend, .bigger .ico-legend {
+    transform: scale(1.8);
+    transition: transform 0.3s;
+    z-index: 2;
+}
+
+.line-legend:hover, .line-legend.bigger, .selected{
+    color: #FFF;
+    transition: color 0.3s ease-in;
+}
+
+.line-legend:hover::after, .line-legend.bigger::after, .selected::after{
+    background-color: rgba(215, 69, 69);
+    transform: scaleX(100%);
+    transition: all 0.3s ease-in;
+}
+
+.line-legend.disabled {
+    cursor: default;
+}
+
+.line-legend.disabled::after {
+    opacity: 0;
+}
+
+.disabled.bigger::after {
+    background-color: transparent;
+}
+
+.line-legend.disabled:hover {
+    background-color: rgba(138, 138, 138, 0.5);
+}
+
+.line-legend.disabled:hover::after .ico-legend, .disabled.bigger::after .ico-legend {
+    transform: scale(1);
+}
+
+.line-legend.disabled img {
+    filter: grayscale(1);
+}
+
+.line-legend:active::after {
+    background-color: #FFF;
+}
+
+.ocean, .continent {
+    font-style: italic;
+    fill: #FFF;
+    opacity: 0.2;
+}
+
+.ocean {
+    font-family: "Roboto", "Raleway", sans-serif;
+    letter-spacing : 15px;
+}
+
+.continent {
+    font-family: "Raleway", "Roboto", sans-serif;
+    font-weight: lighter;
+}
+
+.less {
+    transition: opacity 0.3s;
+    opacity: 0.3;
+}
+
+.ico.more, .ico.hided.more {
+    transition: transform 0.3s;
+    transform: scale(1.4);
+    opacity: 1;
+    z-index: 2;
+}
+
+.ico.hided {
+    cursor: default;
+    opacity: 0;
+}
+
+#infoMap {
+    position: absolute;
+    margin-top: 25px;
+    height: 90%;
+    left: 80px;
+    padding: 10px;
+    z-index: 1;
+    width: 385px;
+}
+
+#infoMap::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #8a8a8a;
+    background-image: url("motif.svg");
+    background-size: 1.5%;
+    box-shadow: 1px 1px 0px 7px rgba(56, 56, 56);
+    border-radius: 4px;
+    z-index: -1;
+    opacity: 0;
+}
+
+#infoMap.display::before {
+    opacity: 0.8;
+}
+
+#informations {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info {
+    position: relative;
+    border: 1px solid #FFF;
+    border-radius: 20px;
+    margin: 0px 10px 10px 0px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.info:hover {
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0px 2px 10px #FFF inset;
+}
+
+.info:nth-child(1), .info:nth-child(2) {
+    width: 180px;
+}
+
+.info:nth-child(3) {
+    width: 80px;
+}
+
+.info h3 {
+    margin: 0px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(148, 55, 58, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(56, 56, 56, 0.5); 
+}
+
+#content {
+    overflow-y: scroll;
+    height: 70%;
+}
+
+#content p {
+    text-align: justify;
+}
+
+#content >:last-child{
+    margin-bottom: 50px;
+}

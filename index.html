@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="./icon/logo-architectch.svg">
+        <title>Ressources minières en Afrique</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Importation de l'API-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+        <!--<script src="projection/proj4.js"></script>-->
+        <!--<script src="projection/proj4leaflet.js"></script>-->
+    </head>
+    <body>
+        <div id="map">
+            <div id="infoMap" class="">
+                <h1 id="title">Répartition des mines en Afrique</h1>
+                <div id="informations">
+                    <a class="info" href="#goal"><h3>Objectif et méthode</h3></a>
+                    <a class="info" href="#tools"><h3>Outils utilisés</h3></a>
+                    <a class="info" href="#sources"><h3>Sources</h3></a>
+                </div>
+                <div id="content">
+                    <h3 id="goal">Objectif et méthode</h3>
+                    <p>La carte présente la répartition des mines sur le continent africain. Chaque ressource naturelle est représentée par un symbole unique les différenciant entre elles.</p>
+                    <p>Les informations sont issues d'une base de données dénombrant le nombre de mines total par localités et selon le type de ressource naturelle. Les localités possèdent des superficies et des quantités de mines très inégales. Pour pallier au problème des surfaces inégales (MAUP), l'utilisation d'hexagones égaux quadrillant le continent permet de redistribuer les données à des surfaces équivalentes et comparables. Au vue de la concentration fréquente de diverses ressources naturelles dans un espace réduit, un tri des informations doit être réalisé pour maintenir la lisibilité de la carte. Pour chaque hexagone, seule la ressource naturelle présentant le plus de mines est cartographiée. Ainsi, une icônes sur la carte représente le type de mine le plus présent dans un hexagone.</p>
+                    <p>Le nombre de mines ne nous indique pas la quantité de matériaux de chacune des ressources naturelles. La carte ne doit donc pas être confondue avec une carte des gisements miniers qui décrit la concentration des ressources naturelles dans le sol, bien que les similitudes soient nombreuses </p>
+                    <h3 id="tools">Outils utilisés</h3>
+                    <ul>
+                        <li><strong>Python</strong>: Géocodage des adresses grâce à l'API Nominatim d'OpenStreetMap.</li>
+                        <li><strong>QGIS</strong>: Visualisation et correction des couches géographiques composant le fond de carte.</li>
+                        <li><strong>Inkscape</strong>: Création des icônes</li>
+                        <li><strong>D3JS</strong>: Mise en place des couches géographiques. Traitement des données avec la méthode des hexagones et représentation sur la carte.</li>
+                    </ul>
+                    <h3 id="sources">Sources</h3>
+                    <ul>
+                        <li>U.S. Geological Survey (USGS), Mineral Resources Data System, 2005.</li>
+                        <li>Carter, Congo Mines, 2019 (Dernière mise à jour), Url: <a href="https://maps.congomines.org/layer/info/95/#4.5/-3.97/24.75">Cliquer ici</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <img title="Architectch" src="icon/logo-architectch.svg" alt="Logo d'Architectch"/>
+            <h1 id="signature">Architectch</h1>
+        </footer>
+
+        <script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+        
+        <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+        <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+        <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+        <script src="https://d3js.org/d3-request.v1.min.js"></script>
+        
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
