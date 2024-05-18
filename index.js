@@ -565,14 +565,14 @@ function mapAfricaMines(){
     d3.selectAll('.country-africa-gradient').on('mouseout', hover);
   }
 
-  function mousePresentation() {
+  /*function mousePresentation() {
 
     function presentationToDisplay() {
       d3.select("#infoMap").node().classList.toggle("display")
     }
     
     d3.selectAll('.info').on('click', presentationToDisplay);
-  }
+  }*/
 
   function getCountryCode(csv) {
     let countryCode = [];
