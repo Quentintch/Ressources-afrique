@@ -105,7 +105,7 @@ function mapAfricaMines(){
     let hexDistance = radius * 1;
 
     let cols = width / hexDistance; //nombre de colonnes
-    let rows = Math.floor(height / hexDistance); //nobre de lignes
+    let rows = Math.floor(height / hexDistance); //nombre de lignes
 
     return d3.range(rows * cols).map(function(i) {
       return {
@@ -153,7 +153,7 @@ function mapAfricaMines(){
 
     let pointsInPolygon = [];
 
-    points.forEach(function(point){ //pour tous les ponts d'hexagones
+    points.forEach(function(point){ //pour tous les points d'hexagones
 
       if (d3.polygonContains(africa, [point.x, point.y])){
         pointsInPolygon.push(point);
@@ -226,7 +226,7 @@ function mapAfricaMines(){
       .y(function(d) { return d.y; });
     
     var hexPoints = hexbin(points);
-    return hexPoints; //retourne nouveau tableau retournant les points par hexagones
+    return hexPoints; //retourne un nouveau tableau avec les points par hexagones
   }
 
   function rollupHexPoints(data){
@@ -246,9 +246,9 @@ function mapAfricaMines(){
         Copper_mine: 0, //cuivre
         Gold_mine: 0, //Or
         Zinc_mine: 0, //Zinc
-        Tin_mine: 0, //étain
-        Aluminium_mine: 0, //aluminium
-        Asbestos_mine: 0, //amiante
+        Tin_mine: 0, //Étain
+        Aluminium_mine: 0, //Aluminium
+        Asbestos_mine: 0, //Amiante
         Bariumbarite_mine: 0, //Barium-Barite
         Beryllium_mine: 0, //Béryllium
         Boronborates_mine: 0, //boronborates 
@@ -265,7 +265,7 @@ function mapAfricaMines(){
         Sulfur_mine: 0, //soufre
         Strontium_mine: 0, //Strontium
         Tungsten_mine: 0, //Tungstène 
-        Uranium_mine: 0 //Uranium, nucléaire
+        Uranium_mine: 0 //Uranium, Nucléaire
       };
 
       el.forEach(function(elt, i){
@@ -482,7 +482,7 @@ function mapAfricaMines(){
       const ico = document.getElementsByClassName("ico-legend " + mine_type)[0];
       const icons = document.getElementsByClassName('ico');
       
-      //Gestion de l'apparition des lignes de légende
+      //Gestion de l'apparence des lignes de légende coordonnée à l'affichage des icônes sur la carte
       if(!this.classList.contains("selected")){
         iconsToDisplay.push(mine_type)
         this.classList.add("selected");
@@ -497,7 +497,7 @@ function mapAfricaMines(){
       }
 
       const linesNotSelected = document.querySelectorAll(".line-legend:not(.selected)");
-      //Ne plus sélectionner de ligne lorsque 5 le sont
+      //Ne plus sélectionner de lignes lorsque 5 le sont
       if(iconsToDisplay.length >= 5){
         d3.selectAll(".line-legend").on('click', null);
         d3.selectAll(".line-legend.selected").on('click', clickToLine)
@@ -893,9 +893,9 @@ function mapAfricaMines(){
   };
 
   let promises = [];
+  //Emplacement des mines
   promises.push(d3.csv("./data/Mines_Africa.csv"));
   promises.push(d3.csv('./data/country-code-fr.csv'));
-  //Emplacement des mines
 
   Promise.all(promises).then(function(csvs) {
     const mines_africa = csvs[0];
@@ -907,22 +907,22 @@ function mapAfricaMines(){
   function ready(mines_africa, country_code){
     let geojson = continentData.features[0].geometry.coordinates
 
-    //On place les futures centres de nos hexgrid sur le SVG en fonction de sa taille
+    //On place les futures centres de nos hexagones sur le SVG en fonction de sa taille
     let points = getPointGrid(hexRadius);
     
     //On récupère le polygones du continent
     let AfricaPolygon = getPolygon(geojson);
 
-    //On ne conserve que les centres de nos hexgrid qui sont dans le continent
+    //On ne conserve que les centres de nos hexagones qui sont dans le continent
     let africaPoints = keepPointsInPolygon(points, AfricaPolygon);
 
     // Construction d'un tableau avec les coordonnées de chaque mine
     let dataPoints = getDatapoints(mines_africa);
 
-    //On concatène tous les centres des hexgrid avec les coordonnées des mines.
+    //On concatène tous les centres des hexagones avec les coordonnées des mines.
     let mergedPoints = africaPoints.concat(dataPoints);
 
-    //Regroupement de nos points par hexagones en utilisant la libraire hexbin
+    //Regroupement des points de mine par hexagones en utilisant la libraire hexbin
     let hexPoints = getHexPoints(mergedPoints);
 
     //Ajout d'informations résumées à chaque hexagone
@@ -934,16 +934,16 @@ function mapAfricaMines(){
     //Ajout d'une légende
     drawLegend();
 
-    //Ajout des figurés ponctuelles au svg
+    //Ajout des figurés ponctuels au svg
     drawIcon(hexMines);
 
     //Ajout des océans
     wrightOceans(oceans);
 
-    //Ajout des océans
+    //Ajout des continents
     wrightContinents(continents);
 
-    // Construction d'un tableau avec les code IOS de chaque pays
+    // Construction d'un tableau avec les codes IOS de chaque pays
     let countryCode = getCountryCode(country_code);
 
     //Ajout des interactions avec la souris
