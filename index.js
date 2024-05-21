@@ -45,8 +45,8 @@ function mapAfricaMines(){
   ]
 
   let projection = d3.geoAzimuthalEqualArea()
-    .center([12, -1])
-    .scale(520)
+    .center([12, 0])
+    .scale(518)
     .translate([width / 2, height / 2]);
 
   const path = d3.geoPath()
