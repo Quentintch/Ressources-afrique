@@ -1,4 +1,4 @@
-# RessourcesAfrique
+# Ressources Minières en Afrique
 
 Le site web représente la répartition des ressources minières en Afrique. 
 
